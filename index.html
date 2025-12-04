@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos y configuración inicial -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Gorras - Obson Caps</title>
+    <!-- Carga del CDN de Tailwind CSS para estilos rápidos y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para usar la fuente Inter y colores personalizados de Tailwind -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* Fondo oscuro, elegante */
+            color: #e0e0e0; /* Texto claro */
+        }
+        /* Estilos personalizados para la tarjeta de producto */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+        /* Color principal de la marca: Azul Oscuro/Real */
+        .brand-primary {
+            background-color: #0a2f7c;
+        }
+        .brand-primary-text {
+            color: #0a2f7c;
+        }
+        /* Color secundario de la marca: Rojo Vivo/Tomate */
+        .brand-secondary {
+            background-color: #cc0000;
+        }
+        .brand-secondary-text {
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Encabezado y Navegación (Fondo oscuro) -->
+    <header class="bg-gray-900 shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo de Obson Caps (SVG inline) -->
+            <h1 class="text-3xl font-extrabold flex items-center">
+                <!-- SVG de la gorra, utilizando los colores de la marca -->
+                <svg width="40" height="40" viewBox="0 0 100 100" class="mr-2">
+                    <g fill="#0a2f7c">
+                        <!-- Visera (Red) -->
+                        <path fill="#cc0000" d="M 20 50 C 30 65, 70 65, 80 50 L 75 40 C 65 55, 35 55, 25 40 Z"/>
+                        <!-- Cuerpo de la gorra (Blue) -->
+                        <path d="M 25 40 Q 50 20, 75 40 L 75 40 C 75 40, 75 10, 50 10 C 25 10, 25 40, 25 40 Z"/>
+                        <!-- Botón superior (Silver/White) -->
+                        <circle cx="50" cy="10" r="5" fill="#f0f0f0"/>
+                    </g>
+                </svg>
+                <span class="text-white">Obson <span class="brand-secondary-text font-medium">Caps</span></span>
+            </h1>
+            
+            <!-- Botón de Navegación (visible solo en móvil) -->
+            <button id="menu-button" class="sm:hidden p-2 rounded-lg hover:bg-gray-700 transition">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <!-- Menú de Escritorio (Simplificado) -->
+            <nav class="hidden sm:block">
+                <a href="#novedades" class="text-lg font-medium text-gray-300 hover:brand-secondary-text px-4 py-2 rounded-full transition duration-150">Novedades</a>
+                <a href="#contacto" class="text-lg font-medium text-gray-300 hover:brand-secondary-text px-4 py-2 rounded-full transition duration-150">Contacto</a>
+            </nav>
+        </div>
+        <!-- Menú Móvil Desplegable (Simplificado) -->
+        <nav id="mobile-menu" class="hidden sm:hidden px-4 pb-2 space-y-2 bg-gray-900">
+            <a href="#novedades" class="block text-lg font-medium text-white hover:brand-secondary-text hover:bg-gray-800 rounded-lg p-2 transition">Novedades</a>
+            <a href="#contacto" class="block text-lg font-medium text-white hover:brand-secondary-text hover:bg-gray-800 rounded-lg p-2 transition">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección Principal / Banner Promocional -->
+    <section class="brand-primary text-white py-16 sm:py-24 mb-10 shadow-lg" id="novedades">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl sm:text-6xl font-extrabold mb-4">MAYOREO Y MENUDEO</h2>
+            <p class="text-xl sm:text-2xl font-light opacity-90 mb-8">
+                Gorras con el estilo distintivo de **Obson Caps**. ¡Calidad y diseño superior!
+            </p>
+            <!-- Botón que muestra "Ver Precios" sin ser un enlace -->
+            <span class="inline-block brand-secondary text-white font-bold py-3 px-8 rounded-full shadow-xl hover:bg-red-700 transition duration-300 cursor-default">
+                Ver Precios
+            </span>
+        </div>
+    </section>
+
+    <!-- Contenedor de Precios (Catálogo) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="catalogo">
+        
+        <h2 class="text-4xl font-bold text-center mb-12 brand-secondary-text border-b-2 border-brand-primary pb-3">
+            Precios
+        </h2>
+
+        <!-- Grid de Productos (Responsive - se adapta bien a 5 elementos) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+
+            <!-- Tarjeta de Producto 1: New Era -->
+            <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700">
+                <div class="h-64 bg-gray-700 flex items-center justify-center">
+                    <!-- 
+                        *** AQUÍ es donde debes reemplazar la URL temporal con la URL de tu foto real. ***
+                        
+                        Ejemplo de URL de foto: https://tu-sitio.com/imagenes/gorra-new-era-modelo-azul.jpg 
+                    -->
+                    <img src="https://placehold.co/400x400/0a2f7c/FFFFFF?text=New+Era" 
+                         alt="Gorra New Era" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <h3 class="text-xl font-semibold mb-3 truncate text-white">New Era</h3>
+                    <p class="text-gray-400 text-sm flex-grow">El ajuste 59FIFTY. Estructura rígida y visera plana. El clásico deportivo, sin imitaciones.</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Producto 2: Barbas Hats -->
+            <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700">
+                <div class="h-64 bg-gray-700 flex items-center justify-center">
+                    <!-- Reemplaza el src de placehold.co con la URL de tu foto de Barbas Hats -->
+                    <img src="https://placehold.co/400x400/cc0000/FFFFFF?text=Barbas+Hats" 
+                         alt="Gorra Barbas Hats" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <h3 class="text-xl font-semibold mb-3 truncate text-white">Barbas Hats</h3>
+                    <p class="text-gray-400 text-sm flex-grow">Diseño premium con detalles de cuero y materiales rústicos. Un estilo que impone presencia.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Producto 3: Dandy Hats -->
+            <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700">
+                <div class="h-64 bg-gray-700 flex items-center justify-center">
+                    <!-- Reemplaza el src de placehold.co con la URL de tu foto de Dandy Hats -->
+                    <img src="https://placehold.co/400x400/0a2f7c/FFFFFF?text=Dandy+Hats" 
+                         alt="Gorra Dandy Hats" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <h3 class="text-xl font-semibold mb-3 truncate text-white">Dandy Hats</h3>
+                    <p class="text-gray-400 text-sm flex-grow">Estilo elegante, tejidos finos y un perfil más bajo para el día a día. Comodidad y sofisticación.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Producto 4: 31 Hats -->
+            <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700">
+                <div class="h-64 bg-gray-700 flex items-center justify-center">
+                    <!-- Reemplaza el src de placehold.co con la URL de tu foto de 31 Hats -->
+                    <img src="https://placehold.co/400x400/cc0000/FFFFFF?text=31+Hats" 
+                         alt="Gorra 31 Hats" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <h3 class="text-xl font-semibold mb-3 truncate text-white">31 Hats</h3>
+                    <p class="text-gray-400 text-sm flex-grow">Edición limitada con parche frontal exclusivo de alta definición. Un modelo que marca tendencia.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Producto 5: Calidad Nacional -->
+            <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700">
+                <div class="h-64 bg-gray-700 flex items-center justify-center">
+                    <!-- Reemplaza el src de placehold.co con la URL de tu foto de Calidad Nacional -->
+                    <img src="https://placehold.co/400x400/0a2f7c/FFFFFF?text=Calidad+Nacional" 
+                         alt="Gorra Calidad Nacional" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <h3 class="text-xl font-semibold mb-3 truncate text-white">Calidad Nacional</h3>
+                    <p class="text-gray-400 text-sm flex-grow">Confeccionada 100% con mano de obra y materiales locales de la mejor calidad. Orgullo y durabilidad.</p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Fin del Grid de Productos -->
+
+    </main>
+
+    <!-- Pie de Página (Fondo oscuro) -->
+    <footer class="bg-gray-900 text-white mt-12" id="contacto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h4 class="text-2xl font-bold mb-2 brand-secondary-text">Obson Caps</h4>
+                    <p class="text-gray-400">Tu fuente de estilo y calidad en gorras.</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <!-- Enlace que activa la llamada en móviles/apps de escritorio al hacer clic -->
+                    <p class="mb-1 text-gray-300">
+                        Teléfono: 
+                        <a href="tel:+526441734952" class="hover:text-white transition">+52 6441734952</a>
+                    </p>
+                    <p class="text-gray-500 text-sm mt-4">&copy; 2025 Obson Caps. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para funcionalidad de menú móvil -->
+    <script>
+        // Obtener el botón de menú y el menú móvil
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Función para alternar la visibilidad del menú
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Opcional: Cerrar el menú después de hacer clic en un enlace (en móvil)
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
