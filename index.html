@@ -1,230 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos y configuración inicial -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Gorras - Obson Caps</title>
-    <!-- Carga del CDN de Tailwind CSS para estilos rápidos y responsive -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración para usar la fuente Inter y colores personalizados de Tailwind -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212; /* Fondo oscuro, elegante */
-            color: #e0e0e0; /* Texto claro */
-        }
-        /* Estilos personalizados para la tarjeta de producto */
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* El cursor cambia a una mano para indicar que es clickeable */
-            cursor: pointer; 
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-        }
-        /* Color principal de la marca: Azul Oscuro/Real */
-        .brand-primary {
-            background-color: #0a2f7c;
-        }
-        .brand-primary-text {
-            color: #0a2f7c;
-        }
-        /* Color secundario de la marca: Rojo Vivo/Tomate */
-        .brand-secondary {
-            background-color: #cc0000;
-        }
-        .brand-secondary-text {
-            color: #cc0000;
-        }
-    </style>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Gorras - Obson Caps</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* Fondo oscuro, elegante */
+            color: #e0e0e0; /* Texto claro */
+        }
+        /* Estilos personalizados para la tarjeta de producto */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* El cursor cambia a una mano para indicar que es clickeable */
+            cursor: pointer; 
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- COLORES DE MARCA ACTUALIZADOS --- */
+        
+        /* Color principal de la marca: Azul Cian/Eléctrico (Nuevo logo) */
+        .brand-primary {
+            background-color: #00BFFF; /* AZUL CIAN/ELÉCTRICO */
+        }
+        .brand-primary-text {
+            color: #00BFFF; /* AZUL CIAN/ELÉCTRICO */
+        }
+        /* Color secundario de la marca: Gris Oscuro/Plata (Para contraste) */
+        .brand-secondary {
+            background-color: #A9A9A9; /* GRIS OSCURO/PLATA */
+        }
+        .brand-secondary-text {
+            color: #A9A9A9; /* GRIS OSCURO/PLATA */
+        }
+        
+        /* Clase para el color Hover del botón/enlaces. Usaremos el azul primario más oscuro. */
+        .hover-brand-primary:hover {
+            background-color: #0088CC; /* Un azul más oscuro */
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-    <!-- Encabezado y Navegación -->
-    <header class="bg-gray-900 shadow-xl sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- Logo de Obson Caps (SVG inline) -->
-            <h1 class="text-3xl font-extrabold flex items-center">
-                <svg width="40" height="40" viewBox="0 0 100 100" class="mr-2">
-                    <g fill="#0a2f7c">
-                        <path fill="#cc0000" d="M 20 50 C 30 65, 70 65, 80 50 L 75 40 C 65 55, 35 55, 25 40 Z"/>
-                        <path d="M 25 40 Q 50 20, 75 40 L 75 40 C 75 40, 75 10, 50 10 C 25 10, 25 40, 25 40 Z"/>
-                        <circle cx="50" cy="10" r="5" fill="#f0f0f0"/>
-                    </g>
-                </svg>
-                <span class="text-white">Obson <span class="brand-secondary-text font-medium">Caps</span></span>
-            </h1>
-            
-            <button id="menu-button" class="sm:hidden p-2 rounded-lg hover:bg-gray-700 transition">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <nav class="hidden sm:block">
-                <a href="#novedades" class="text-lg font-medium text-gray-300 hover:brand-secondary-text px-4 py-2 rounded-full transition duration-150">Novedades</a>
-                <a href="#contacto" class="text-lg font-medium text-gray-300 hover:brand-secondary-text px-4 py-2 rounded-full transition duration-150">Contacto</a>
-            </nav>
-        </div>
-        <nav id="mobile-menu" class="hidden sm:hidden px-4 pb-2 space-y-2 bg-gray-900">
-            <a href="#novedades" class="block text-lg font-medium text-white hover:brand-secondary-text hover:bg-gray-800 rounded-lg p-2 transition">Novedades</a>
-            <a href="#contacto" class="block text-lg font-medium text-white hover:brand-secondary-text hover:bg-gray-800 rounded-lg p-2 transition">Contacto</a>
-        </nav>
-    </header>
+        <header class="bg-gray-900 shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                        <h1 class="text-3xl font-extrabold flex items-center">
+                                <svg width="40" height="40" viewBox="0 0 100 100" class="mr-2">
+                    <g fill="#00BFFF">                         <path fill="#A9A9A9" d="M 20 50 C 30 65, 70 65, 80 50 L 75 40 C 65 55, 35 55, 25 40 Z"/>                         <path d="M 25 40 Q 50 20, 75 40 L 75 40 C 75 40, 75 10, 50 10 C 25 10, 25 40, 25 40 Z"/>                         <circle cx="50" cy="10" r="5" fill="#f0f0f0"/>                     </g>
+                </svg>
+                <span class="text-white">Obson <span class="brand-primary-text font-medium">Caps</span></span>             </h1>
+            
+            <button id="menu-button" class="sm:hidden p-2 rounded-lg hover:bg-gray-700 transition">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <nav class="hidden sm:block">
+                <a href="#novedades" class="text-lg font-medium text-gray-300 hover:brand-primary-text px-4 py-2 rounded-full transition duration-150">Novedades</a>
+                <a href="#contacto" class="text-lg font-medium text-gray-300 hover:brand-primary-text px-4 py-2 rounded-full transition duration-150">Contacto</a>
+            </nav>
+        </div>
+        <nav id="mobile-menu" class="hidden sm:hidden px-4 pb-2 space-y-2 bg-gray-900">
+            <a href="#novedades" class="block text-lg font-medium text-white hover:brand-primary-text hover:bg-gray-800 rounded-lg p-2 transition">Novedades</a>
+            <a href="#contacto" class="block text-lg font-medium text-white hover:brand-primary-text hover:bg-gray-800 rounded-lg p-2 transition">Contacto</a>
+        </nav>
+    </header>
 
-    <!-- Sección Principal / Banner Promocional -->
-    <section class="brand-primary text-white py-16 sm:py-24 mb-10 shadow-lg" id="novedades">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl sm:text-6xl font-extrabold mb-4">MAYOREO Y MENUDEO</h2>
-            <p class="text-xl sm:text-2xl font-light opacity-90 mb-8">
-                Tu gorra. Tu negocio.
-            </p>
-            <span class="inline-block brand-secondary text-white font-bold py-3 px-8 rounded-full shadow-xl hover:bg-red-700 transition duration-300 cursor-default">
-                Ver Precios
-            </span>
-        </div>
-    </section>
+            <section class="brand-primary text-white py-16 sm:py-24 mb-10 shadow-lg" id="novedades">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl sm:text-6xl font-extrabold mb-4">MAYOREO Y MENUDEO</h2>
+            <p class="text-xl sm:text-2xl font-light opacity-90 mb-8">
+                Tu gorra. Tu negocio.
+            </p>
+                        <span class="inline-block brand-secondary text-gray-900 font-bold py-3 px-8 rounded-full shadow-xl hover-brand-primary hover:text-white transition duration-300 cursor-default">
+                Ver Precios
+            </span>
+        </div>
+    </section>
 
-    <!-- Contenedor de Precios (Catálogo) -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="catalogo">
-        
-        <h2 class="text-4xl font-bold text-center mb-12 brand-secondary-text border-b-2 border-brand-primary pb-3">
-            Obson Caps
-        </h2>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="catalogo">
+        
+        <h2 class="text-4xl font-bold text-center mb-12 brand-primary-text border-b-2 border-brand-secondary pb-3">
+            Obson Caps
+        </h2>
 
-        <!-- Grid de Productos -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
 
-            <!-- Tarjeta de Producto 1: New Era (TERMINADA) -->
-            <a href="https://photos.app.goo.gl/WvCzgyuFQpGp4NrC6" target="_blank" class="block">
-                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <!-- LINK DE FOTO PRINCIPAL DE NEW ERA PEGADO AQUÍ -->
-                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/new%20era.png?raw=true" 
-                            alt="Gorra New Era" 
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold mb-3 truncate text-white">New Era</h3>
-                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Tarjeta de Producto 2: Barbas Hats (PENDIENTE) -->
-            <a href="https://photos.app.goo.gl/xgAKMEQWqP9xVQiN9" target="_blank" class="block">
-                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <!-- 
-                            *** CLAVE: PON AQUÍ EL LINK DE TU FOTO PRINCIPAL DE BARBAS HATS ***
-                        -->
-                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/download.png?raw=true" 
-                             alt="Gorra Barbas Hats" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Barbas Hats</h3>
-                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
-                    </div>
-                </div>
-            </a>
+                        <a href="https://photos.app.goo.gl/WvCzgyuFQpGp4NrC6" target="_blank" class="block">
+                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/new%20era.png?raw=true" 
+                            alt="Gorra New Era" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold mb-3 truncate text-white">New Era</h3>
+                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
+                    </div>
+                </div>
+            </a>
+            
+                        <a href="https://photos.app.goo.gl/xgAKMEQWqP9xVQiN9" target="_blank" class="block">
+                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/download.png?raw=true" 
+                             alt="Gorra Barbas Hats" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Barbas Hats</h3>
+                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
+                    </div>
+                </div>
+            </a>
 
-            <!-- Tarjeta de Producto 3: Dandy Hats (PENDIENTE) -->
-            <a href="https://photos.app.goo.gl/rejpuNDWYpK2x28L8" target="_blank" class="block">
-                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAbFBMVEUAAAD////8/Pz29vbw8PD5+fklJSXb29vAwMC9vb3r6+u1tbUpKSnU1NTo6OjY2NiIiIicnJytra19fX0KCgo+Pj5paWkUFBRdXV1kZGTGxsY5OTmPj49MTEx1dXVGRkYyMjIeHh6kpKRVVVXJU2J/AAAFGklEQVR4nO2a25KqOhBASUJE7ooXFMEL8///uAUT0pDWfWqqd8Wqk/U0FjizJgmd7iZB4PF4PB6Px+PxeP4X7CfqvWsXTVoO5APrH9cyikvBpILnd9c2io3gTx8xUrmW0aTGKby6llEcIiY554OXLB6ubRTXkPNR6rmk1q5lND03UjvXMopLw7jS4vJbotSxmKRY7lpG0zItxdnGtYzivp6cOKtd2yh+CjNQpWsZzY6NjFJb1zKKR8W4kmL8izZjBWdR5tpGcWZGqv+Wdd4zw9G1jKYwTkXnWkZxAwNVrVzbKLZA6lvCeRCB2Tu5llHcwUCtvyUgbIDUt4TzoDFOybdk56vESH1NbbUTRip1LaNZG6fwW7LzOwgI0cW1jWIXGqnGtYymMk7SRTh/rBZkjyDLwZK6BHUGro4//8t667yN82hJeQyuIEPIg6xf3hHl1fkfKbWRkMyG34faaqINTgVyk4gP/0AJruUZZZDF4ONdFxDKZipwIvK8/dawd+xmQ1MMBcR8kFR/gZU3WqdzxN5Sz4amD26Le7WUIM7cj8gqeTM0XXDkuJTkCeWyOnxweuYpBzA0Yb3vFzdMUoJRpg/v19NraMCnKliV76UIE60NW0wIpHjMaqtz0C3vAFJ0vVmYKtlU+wfMzm+zmLWU6smker4YqKRZTzSn4AAupaugB1fXDZ9JkSU19fwJF/EyBsLayvqrnTBSUpA9fVcYyXlu72Ewctq1VW+kWENW5cAgxBskKIPr67t1daPmb5BqqZKFFYwHOTL+MJwjj3wM1hRZpgCDucAq38+11T40e19Otve14NGLkesrUMYgA/kzNbEl3da3SpmJCFiD5wqkkdqqMu1+QRYQToWRSrAb/lJbJabdX5LlUztupLB4fAdLLrJnrwMBIaWavcc4/J9m73NtZaIUFy2RU3AoX791nB3sP63MksL+amSkIrKm1Vkn2MMyRkLforZa0pmAwBuql5L7LTNSWMf3OKutLLbSPHtkGcIjN7OXYKFvCwICMnvg/V9I1sW+gIHCeoYPWFvZs3eLjFREVjS0TE5WWIsA1lYR8nWTt3C6plXEpLZKsIfnL43O1JRXgu4dxHAcQ0k1SNdpUVst6XIzUAnZ7F2ngcJf4HWwtkK+DjIEbC//HQ0T4jVWDD2PcQUDhayZHmQIZLNXh1JIJYXlQvXn91bTgYDnimJUTsF1OLWipLCHJ4OzZ2/Gp0QnwoLTHQhIx6M0gxUTWECAsxfb763aKTkXdG+QsshIRdjswSLVTqWy4UDAeJLq+TvuVFLH5HXmaCyO7Mv7FDiFdhS7DbMnx4Gi24yDPhRCa9n72mXWXEFqqytTc/dc5oS1ldBW0mos1cd5J8aW3j9rKz15aBX0K86RkcqDDNJt4nnHqrArujp8ST2/zrFy8Xe04RM9UnlZlqYFXQg2J7bXzA+T+iQc76mWVJ0KYyV0/qKZf8bCfcXkZEXWwPspR6lpsQspp915ARpZQ65PDErC2ipUCKiFOmGvrTqmnYSsyGavF0kSImNleeHv1rdGKiQL57cmTP6TFcOT75JPXyKsrYoksa2shfXMgtEOQRdO4yTXVPndvg2LApECAzYmD2yND0M7OYUhWZ86a5JitMK0tBRj5e5Nw7AxUkhg/SU3IKOPTS9fq/Fm9+6czW0I+K9dhpdk2fkpTjUxwPSi0+35wyZ7Tod7Xt/5msM4Ho/H4/F4PB6Px+PxeDwej8fj8Xg8Hs9v+AOir0ERXM1eeQAAAABJRU5ErkJggg==" 
-                             alt="Gorra Dandy Hats" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Dandy Hats</h3>
-                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
-                    </div>
-                </div>
-            </a>
+                        <a href="https://photos.app.goo.gl/rejpuNDWYpK2x28L8" target="_blank" class="block">
+                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAbFBMVEUAAAD////8/Pz29vbw8PD5+fklJSXb29vAwMC9vb3r6+u1tbUpKSnU1NTo6OjY2NiIiIicnJytra19fX0KCgo+Pj5paWkUFBRdXV1kZGTGxsY5OTmPj49MTEx1dXVGRkYyMjIeHh6kpKRVVVXJU2J/AAAFGklEQVR4nO2a25KqOhBASUJE7ooXFMEL8///uAUT0pDWfWqqd8Wqk/U0FjizJgmd7iZB4PF4PB6Px+PxeP4X7CfqvWsXTVoO5APrH9cyikvBpILnd9c2io3gTx8xUrmW0aTGKby6llEcIiY554OXLB6ubRTXkPNR6rmk1q5lND03UjvXMopLw7jS4vJbotSxmKRY7lpG0zItxdnGtYzivp6cOKtd2yh+CjNQpWsZzY6NjFJb1zKKR8W4kmL8izZjBWdR5tpGcWZGqv+Wdd4zw9G1jKYwTkXnWkZxAwNVrVzbKLZA6lvCeRCB2Tu5llHcwUCtvyUgbIDUt4TzoDFOybdk56vESH1NbbUTRip1LaNZG6fwW7LzOwgI0cW1jWIXGqnGtYymMk7SRTh/rBZkjyDLwZK6BHUGro4//8t667yN82hJeQyuIEPIg6xf3hHl1fkfKbWRkMyG34faaqINTgVyk4gP/0AJruUZZZDF4ONdFxDKZipwIvK8/dawd+xmQ1MMBcR8kFR/gZU3WqdzxN5Sz4amD26Le7WUIM7cj8gqeTM0XXDkuJTkCeWyOnxweuYpBzA0Yb3vFzdMUoJRpg/v19NraMCnKliV76UIE60NW0wIpHjMaqtz0C3vAFJ0vVmYKtlU+wfMzm+zmLWU6smker4YqKRZTzSn4AAupaugB1fXDZ9JkSU19fwJF/EyBsLayvqrnTBSUpA9fVcYyXlu72Ewctq1VW+kWENW5cAgxBskKIPr67t1daPmb5BqqZKFFYwHOTL+MJwjj3wM1hRZpgCDucAq38+11T40e19Otve14NGLkesrUMYgA/kzNbEl3da3SpmJCFiD5wqkkdqqMu1+QRYQToWRSrAb/lJbJabdX5LlUztupLB4fAdLLrJnrwMBIaWavcc4/J9m73NtZaIUFy2RU3AoX791nB3sP63MksL+amSkIrKm1Vkn2MMyRkLforZa0pmAwBuql5L7LTNSWMf3OKutLLbSPHtkGcIjN7OXYKFvCwICMnvg/V9I1sW+gIHCeoYPWFvZs3eLjFREVjS0TE5WWIsA1lYR8nWTt3C6plXEpLZKsIfnL43O1JRXgu4dxHAcQ0k1SNdpUVst6XIzUAnZ7F2ngcJf4HWwtkK+DjIEbC//HQ0T4jVWDD2PcQUDhayZHmQIZLNXh1JIJYXlQvXn91bTgYDnimJUTsF1OLWipLCHJ4OzZ2/Gp0QnwoLTHQhIx6M0gxUTWECAsxfb763aKTkXdG+QsshIRdjswSLVTqWy4UDAeJLq+TvuVFLH5HXmaCyO7Mv7FDiFdhS7DbMnx4Gi24yDPhRCa9n72mXWXEFqqytTc/dc5oS1ldBW0mos1cd5J8aW3j9rKz15aBX0K86RkcqDDNJt4nnHqrArujp8ST2/zrFy8Xe04RM9UnlZlqYFXQg2J7bXzA+T+iQc76mWVJ0KYyV0/qKZf8bCfcXkZEXWwPspR6lpsQspp915ARpZQ65PDErC2ipUCKiFOmGvrTqmnYSsyGavF0kSImNleeHv1rdGKiQL57cmTP6TFcOT75JPXyKsrRoksa2shfXMgtEOQRdO4yTXVPndvg2LApECAzYmD2yND0M7OYUhWZ86a5JitMK0tBRj5e5Nw7AxUkhg/SU3IKOPTS9fq/Fm9+6czW0I+K9dhpdk2fkpTjUxwPSi0+35wyZ7Tod7Xt/5msM4Ho/H4/F4PB6Px+PxeDwej8fj8Xg8Hs9v+AOir0ERXM1eeQAAAABJRU5ErkJggg==" 
+                             alt="Gorra Dandy Hats" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Dandy Hats</h3>
+                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
+                    </div>
+                </div>
+            </a>
 
-            <!-- Tarjeta de Producto 4: 31 Hats (PENDIENTE) -->
-            <a href="https://photos.app.goo.gl/TngBTxhgeAu5zphE6" target="_blank" class="block">
-                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/31.png?raw=true" 
-                             alt="Gorra 31 Hats" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold mb-3 truncate text-white">31 Hats</h3>
-                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
-                    </div>
-                </div>
-            </a>
+                        <a href="https://photos.app.goo.gl/TngBTxhgeAu5zphE6" target="_blank" class="block">
+                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                        <img src="https://github.com/castroesquerbenjamin-design/Obson-Caps/blob/main/31.png?raw=true" 
+                             alt="Gorra 31 Hats" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold mb-3 truncate text-white">31 Hats</h3>
+                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
+                    </div>
+                </div>
+            </a>
 
-            <!-- Tarjeta de Producto 5: Calidad Nacional (PENDIENTE) -->
-            <a href="https://photos.app.goo.gl/5Xhgr3hzJN8nRdYr7" target="_blank" class="block">
-                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <img src="https://placehold.co/400x400/0a2f7c/FFFFFF?text=Calidad+Nacional" 
-                             alt="Gorra Calidad Nacional" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Calidad Nacional</h3>
-                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
-                    </div>
-                </div>
-            </a>
-            
-        </div>
-        <!-- Fin del Grid de Productos -->
+                        <a href="https://photos.app.goo.gl/5Xhgr3hzJN8nRdYr7" target="_blank" class="block">
+                <div class="product-card bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col border border-gray-700 h-full">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                                                <img src="https://placehold.co/400x400/00BFFF/FFFFFF?text=Calidad+Nacional" 
+                             alt="Gorra Calidad Nacional" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold mb-3 truncate text-white">Calidad Nacional</h3>
+                        <p class="text-gray-400 text-sm flex-grow">ObsonCaps.</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+            </main>
 
-    </main>
+        <footer class="bg-gray-900 text-white mt-12" id="contacto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h4 class="text-2xl font-bold mb-2 brand-primary-text">Obson Caps</h4>
+                    <p class="text-gray-400">Tu fuente de estilo y calidad en gorras.</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="mb-1 text-gray-300">
+                        Teléfono: 
+                                                <a href="tel:+526441734952" class="hover:text-white transition">+52 6441734952</a>
+                    </p>
+                    <p class="text-gray-500 text-sm mt-4">&copy; 2025 Obson Caps. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Pie de Página (Fondo oscuro) -->
-    <footer class="bg-gray-900 text-white mt-12" id="contacto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h4 class="text-2xl font-bold mb-2 brand-secondary-text">Obson Caps</h4>
-                    <p class="text-gray-400">Tu fuente de estilo y calidad en gorras.</p>
-                </div>
-                <div class="text-center md:text-right">
-                    <p class="mb-1 text-gray-300">
-                        Teléfono: 
-                        <!-- Enlace de teléfono sin WhatsApp (funciona al picar) -->
-                        <a href="tel:+526441734952" class="hover:text-white transition">+52 6441734952</a>
-                    </p>
-                    <p class="text-gray-500 text-sm mt-4">&copy; 2025 Obson Caps. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    <!-- Script para funcionalidad de menú móvil -->
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-
-
-
-
-
-
-
-
-
-
-
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
